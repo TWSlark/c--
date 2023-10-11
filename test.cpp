@@ -9,7 +9,7 @@ private:
     list<int> mylist;
 public:
     test(){
-        mylist = {1, 2, 3, 4, 5};
+        mylist = {1, 2, 4, 5};
     };
     ~test(){
         mylist.clear();
@@ -26,6 +26,17 @@ public:
     void dodajt(int number){
         mylist.push_back(number);
     };
+    void wstaw(int number){
+        auto it = mylist.begin();
+        advance(it, 3);
+        mylist.insert(it, number);
+    };
+    void usunp(){
+        mylist.pop_front();
+    };
+    void usunt(){
+        mylist.pop_back();
+    };
 };
 
 int main() {
@@ -39,6 +50,18 @@ int main() {
 
     cout << "Dodajemy 6 na koniec" << endl;
     lista.dodajt(6);
+    lista.wypisz();
+
+    cout << "Dodajemy 3 na 3 miejsce" << endl;
+    lista.wstaw(3);
+    lista.wypisz();
+
+    cout << "Usuwamy liczbe z poczatku listy" << endl;
+    lista.usunp();
+    lista.wypisz();
+
+    cout << "Usuwamy liczbe z konca listy" << endl;
+    lista.usunt();
     lista.wypisz();
 
     return 0;

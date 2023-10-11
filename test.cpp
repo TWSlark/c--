@@ -72,5 +72,7 @@ int main() {
     cout << "Wyswietalnie listy od konca" << endl;
     lista.odwrocone();
 
+    cout << "Wyświetl następny element" << endl;
+
     return 0;
 }

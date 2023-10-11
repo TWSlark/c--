@@ -37,6 +37,11 @@ public:
     void usunt(){
         mylist.pop_back();
     };
+    void odwrocone(){
+        mylist.reverse();
+        wypisz();
+        mylist.reverse();
+    };
 };
 
 int main() {
@@ -63,6 +68,9 @@ int main() {
     cout << "Usuwamy liczbe z konca listy" << endl;
     lista.usunt();
     lista.wypisz();
+
+    cout << "Wyswietalnie listy od konca" << endl;
+    lista.odwrocone();
 
     return 0;
 }

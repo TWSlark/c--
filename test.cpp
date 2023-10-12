@@ -2,16 +2,14 @@
 
 using namespace std;
 
-struct node {
-    int value;
-    node *next;
-    node *prev;
-};
-
 class test
 {
 private:
-    node* head;
+    struct node {
+        int value;
+        node *next;
+        node *prev;
+    } *head;
 public:
     test(){
         head = new node();
@@ -31,6 +29,17 @@ public:
         while(temp != NULL){
             cout << temp->value << " ";
             temp = temp->next;
+        }
+        cout << endl;
+    };
+    void wypisz_od_tylu(){
+        node* temp = head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        while(temp != NULL){
+            cout << temp->value << " ";
+            temp = temp->prev;
         }
         cout << endl;
     };
@@ -88,6 +97,15 @@ public:
         temp->next->prev = temp;
         delete temp2;
     };
+    void usun_wszystkie(){
+        node* temp = head;
+        while(temp != NULL){
+            node* temp2 = temp;
+            temp = temp->next;
+            delete temp2;
+        }
+        head = NULL;
+    };
 };
 
 int main() {
@@ -110,6 +128,10 @@ int main() {
     lista.na_miejscu(4, 2);
     lista.wypisz();
 
+    cout << "Wypisanie listy od tylu" << endl;
+    lista.wypisz_od_tylu();
+    cout << endl;
+
     cout << "Usuniecie pierwszego elementu" << endl;
     lista.usun_pierwsze();
     lista.wypisz();
@@ -120,6 +142,21 @@ int main() {
 
     cout << "Usuniecie elementu na trzecim miejscu" << endl;
     lista.usun_na_miejscu(3);
+    lista.wypisz();
+    cout << endl;
+
+    lista.z_przodu(2);
+    lista.z_przodu(1);
+    lista.z_tylu(7);
+    lista.z_tylu(8);
+    lista.z_tylu(9);
+    cout << "Aktualna lista: ";
+    lista.wypisz();
+
+    
+
+    cout << "Usuniecie wszystkich elementow" << endl;
+    lista.usun_wszystkie();
     lista.wypisz();
 
     return 0;

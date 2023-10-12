@@ -17,7 +17,16 @@ public:
         head->next = NULL;
         head->prev = NULL;
     };
-    ~test(){};
+    ~test(){
+        node* temp = head;
+        while(temp != NULL){
+            node* temp2 = temp;
+            temp = temp->next;
+            delete temp2;
+        }
+        head = NULL;
+        cout << "Usuwanie listy" << endl;
+    };
     test(int value){
         head = new node();
         head->value = value;
@@ -97,15 +106,32 @@ public:
         temp->next->prev = temp;
         delete temp2;
     };
-    void usun_wszystkie(){
-        node* temp = head;
-        while(temp != NULL){
-            node* temp2 = temp;
-            temp = temp->next;
-            delete temp2;
+    void wyswietlanie(){
+        cout << "Aktualny element: " << head->value << endl;
+        int wybor;
+        cin >> wybor;
+
+        switch(wybor){
+            case 0:
+                break;
+            case 1:
+                if(head->prev != NULL){
+                    head = head->prev;
+                }
+                wyswietlanie();
+                break;
+            case 2:
+                if(head->next != NULL){
+                    head = head->next;
+                }
+                wyswietlanie();
+                break;
+            default:
+                cout << "Nie ma takiej opcji" << endl;
+                wyswietlanie();
+                break;
         }
-        head = NULL;
-    };
+    }
 };
 
 int main() {
@@ -150,14 +176,13 @@ int main() {
     lista.z_tylu(7);
     lista.z_tylu(8);
     lista.z_tylu(9);
-    cout << "Aktualna lista: ";
+    cout << "Lista po dodaniu kilku elementow: ";
     lista.wypisz();
 
-    
-
-    cout << "Usuniecie wszystkich elementow" << endl;
-    lista.usun_wszystkie();
-    lista.wypisz();
+    cout << "0 - wyjscie" << endl;
+    cout << "1 - poprzedni element" << endl;
+    cout << "2 - nastepny element" << endl;
+    lista.wyswietlanie();
 
     return 0;
 }

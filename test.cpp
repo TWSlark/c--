@@ -53,20 +53,37 @@ public:
         nowy->prev = temp;
         temp->next = nowy;
     };
+    void na_miejscu(int value, int index){
+        node* temp = head;
+        for(int i = 0; i < index-1; i++){
+            temp = temp->next;
+        }
+        node* nowy = new node();
+        nowy->value = value;
+        nowy->next = temp->next;
+        nowy->prev = temp;
+        temp->next = nowy;
+    };
+    
 };
 
 int main() {
     
-    cout << "Utworzenie listy" << endl;
+    cout << "Utworzenie listy z liczba 5" << endl;
     test lista(5);
     lista.wypisz();
 
-    cout << "Dodanie elementu na poczatek" << endl;
-    lista.z_przodu(4);
+    cout << "Dodanie elementow 2 i 3 na poczatek" << endl;
+    lista.z_przodu(3);
+    lista.z_przodu(2);
     lista.wypisz();
 
-    cout << "Dodanie elementu na koniec" << endl;
-    lista.z_tylu(7);
+    cout << "Dodanie elementu 6 na koniec" << endl;
+    lista.z_tylu(6);
+    lista.wypisz();
+
+    cout << "Dodanie elementu 2 na drugie miejsce" << endl;
+    lista.na_miejscu(4, 2);
     lista.wypisz();
 
     return 0;

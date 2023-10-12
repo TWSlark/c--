@@ -1,76 +1,40 @@
 #include <iostream>
-#include <list>
 
 using namespace std;
+
+struct node {
+    int value;
+    node *next;
+    node *prev;
+};
 
 class test
 {
 private:
-    list<int> mylist;
+    node* head;
 public:
-    test(){
-        mylist = {1, 2, 4, 5};
-    };
-    ~test(){
-        mylist.clear();
+    test(){};
+    ~test(){};
+    test(int value){
+        head = new node();
+        head->value = value;
+        head->next = NULL;
+        head->prev = NULL;
     };
     void wypisz(){
-        for (int numbers : mylist) {
-            cout << numbers << " ";
+        node* temp = head;
+        while(temp != NULL){
+            cout << temp->value << endl;
+            temp = temp->next;
         }
-        cout << endl;
     };
-    void dodajp(int number){
-        mylist.push_front(number);
-    };
-    void dodajt(int number){
-        mylist.push_back(number);
-    };
-    void wstaw(int number){
-        auto it = mylist.begin();
-        advance(it, 3);
-        mylist.insert(it, number);
-    };
-    void usunp(){
-        mylist.pop_front();
-    };
-    void usunt(){
-        mylist.pop_back();
-    };
-    void odwrocone(){
-        mylist.reverse();
-        wypisz();
-        mylist.reverse();
-    };
+    
 };
 
 int main() {
-    test lista;
-
+    
+    test lista(5);
     lista.wypisz();
-
-    cout << "Dodajemy 0 na poczatek" << endl;
-    lista.dodajp(0);
-    lista.wypisz();
-
-    cout << "Dodajemy 6 na koniec" << endl;
-    lista.dodajt(6);
-    lista.wypisz();
-
-    cout << "Dodajemy 3 na 3 miejsce" << endl;
-    lista.wstaw(3);
-    lista.wypisz();
-
-    cout << "Usuwamy liczbe z poczatku listy" << endl;
-    lista.usunp();
-    lista.wypisz();
-
-    cout << "Usuwamy liczbe z konca listy" << endl;
-    lista.usunt();
-    lista.wypisz();
-
-    cout << "Wyswietalnie listy od konca" << endl;
-    lista.odwrocone();
 
     return 0;
 }

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class test
+class lista
 {
 private:
     struct node {
@@ -11,13 +11,13 @@ private:
         node *prev;
     } *head;
 public:
-    test(){
+    lista(){
         head = new node();
         head->value = 0;
         head->next = NULL;
         head->prev = NULL;
     };
-    ~test(){
+    ~lista(){
         node* temp = head;
         while(temp != NULL){
             node* temp2 = temp;
@@ -27,7 +27,7 @@ public:
         head = NULL;
         cout << "Usuwanie listy" << endl;
     };
-    test(int value){
+    lista(int value){
         head = new node();
         head->value = value;
         head->next = NULL;
@@ -137,52 +137,52 @@ public:
 int main() {
     
     cout << "Utworzenie listy z liczba 5" << endl;
-    test lista(5);
-    lista.wypisz();
+    lista test(5);
+    test.wypisz();
 
     cout << "Dodanie elementow 2 i 3 na poczatek" << endl;
-    lista.z_przodu(3);
-    lista.z_przodu(2);
-    lista.wypisz();
+    test.z_przodu(3);
+    test.z_przodu(2);
+    test.wypisz();
 
     cout << "Dodanie elementu 6 i 7 na koniec" << endl;
-    lista.z_tylu(6);
-    lista.z_tylu(7);
-    lista.wypisz();
+    test.z_tylu(6);
+    test.z_tylu(7);
+    test.wypisz();
 
     cout << "Dodanie elementu 4 pod drugim elemencie" << endl;
-    lista.na_miejscu(4, 2);
-    lista.wypisz();
+    test.na_miejscu(4, 2);
+    test.wypisz();
 
     cout << "Wypisanie listy od tylu" << endl;
-    lista.wypisz_od_tylu();
+    test.wypisz_od_tylu();
     cout << endl;
 
     cout << "Usuniecie pierwszego elementu" << endl;
-    lista.usun_pierwsze();
-    lista.wypisz();
+    test.usun_pierwsze();
+    test.wypisz();
 
     cout << "Usuniecie ostatniego elementu" << endl;
-    lista.usun_ostatnie();
-    lista.wypisz();
+    test.usun_ostatnie();
+    test.wypisz();
 
     cout << "Usuniecie elementu na trzecim miejscu" << endl;
-    lista.usun_na_miejscu(3);
-    lista.wypisz();
+    test.usun_na_miejscu(3);
+    test.wypisz();
     cout << endl;
 
-    lista.z_przodu(2);
-    lista.z_przodu(1);
-    lista.z_tylu(7);
-    lista.z_tylu(8);
-    lista.z_tylu(9);
+    test.z_przodu(2);
+    test.z_przodu(1);
+    test.z_tylu(7);
+    test.z_tylu(8);
+    test.z_tylu(9);
     cout << "Lista po dodaniu kilku elementow: ";
-    lista.wypisz();
+    test.wypisz();
 
     cout << "0 - wyjscie" << endl;
     cout << "1 - poprzedni element" << endl;
     cout << "2 - nastepny element" << endl;
-    lista.wyswietlanie();
+    test.wyswietlanie();
 
     return 0;
 }

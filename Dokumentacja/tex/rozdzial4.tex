@@ -3,4 +3,22 @@
 %Opisać implementacje algorytmu/programu. Pokazać ciekawe fragmenty kodu
 %Opisać powstałe wyniki
 
+\lstinputlisting[caption=Struktura elementów listy., label={lst:listing-cpp}, language=C++, firstline=5, lastline=12]{kod/test.cpp}
 
+Kod \ref{lst:listing-cpp} (s. \pageref{lst:listing-cpp}) przedstawia strukturę elementu listy, znajduje się ona w klasie lista w części prywatnej. Na końcu, po strukturze, tworzy się pierwszy element listy, o nazwie head.
+
+\lstinputlisting[caption=Konstruktory i destruktory, label={lst:listing-cpp2}, language=C++, firstline=13, lastline=35]{kod/test.cpp}
+
+Kod \ref{lst:listing-cpp2} (s. \pageref{lst:listing-cpp2}) przedstawia konstruktory i destruktory. Konsturktor parametrowy i bezparametrowy tworzą pierwszy element listy o nazwie head za pomocą struktury node. Przypisywane mu są wartość value w zależności czy była podana podczas tworzenia listy oraz wartości NULL do wskaźników prev i next gdyż nie ma innych elementów listy niż początkowy. Desturktor idzie odpowiednio po każdym kolejnym elemencie listy od początku i z pomocą zmiennych temp i temp2 usuwa wszystkie jej elementy.
+
+\lstinputlisting[caption=Wypisywanie listy, label={lst:listing-cpp3}, language=C++, firstline=36, lastline=54]{kod/test.cpp}
+
+Kod \ref{lst:listing-cpp3} (s. \pageref{lst:listing-cpp3}) przedstawia metody służące do wypisywania listy od początku i od końca. Wypisywanie od początku przebiega od pierwszego elementu (head), wypisuje go, przechodzi do następnego i o ile nie jest pusty wypisuje ponownie i powtarza proces aż do przejścia całej listy. Wypisywanie od końca działa na podobnej zasadzie z tym, że najpierw idzie się do ostatniego elemenut listy (tail) i od niego wypisuje się każdy poprzedni element aż natrafi na koniec.
+
+\lstinputlisting[caption=Dodawanie elementów listy, label={lst:listing-cpp4}, language=C++, firstline=55, lastline=84]{kod/test.cpp}
+
+Kod \ref{lst:listing-cpp4} (s. \pageref{lst:listing-cpp4}) przedstawia dodawanie elementu na początek, koniec lub wskazane miejsce do listy. W odpowiednie wskaźniki prev i next wpisuje się adresy elementów które mają być ze sobą połączone. Usuwanie działa podobnie ale zamiast wpisywać we wskaźniki adresy wpisuje się NULL aby nie łączyły się z innymi elementami.
+
+\lstinputlisting[caption=Dodawanie elementów listy, label={lst:listing-cpp5}, language=C++, firstline=109, lastline=134]{kod/test.cpp}
+
+Kod \ref{lst:listing-cpp5} (s. \pageref{lst:listing-cpp5}) przedstawia metodę, której zadaniem jest wyświetalnie następnego bądź poprzedniego elementu. Wypisuje ona pierwszy element z listy i za pomocą instrukcji switch pozwala wbyierać pomiędzy przejściem na następny, poprzedni element oraz wyjście wybierając 0.
